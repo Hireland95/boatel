@@ -12,8 +12,7 @@
     <p class="boat-show-price">£<%= @boat.price %>/hour</p>
   </div>
   <div class="boat-show-action">
-    <%= link_to 'Back to List', boats_path, class: 'boat-show-btn' %>
-    <%= link_to 'Book Now', new_boat_booking_path(boat_id: @boat.id), class: 'boat-show-btn book-btn' %>
-</div>
+    <%= link_to '< Back to List', boats_path, class: 'boat-show-btn' %>
+    <%= link_to 'Book Now >', new_boat_booking_path(boat_id: @boat.id), class: 'book-btn' %>
   </div>
 </div>
