@@ -1,9 +1,9 @@
 <div class="boats-section">
   <h1 class="boats-title">Boats for Rent</h1>
-  <div class="boats">
+  <div class="boats-container">
     <% @boats.each do |boat| %>
       <%= link_to boat_path(boat), class: 'boat-card-link' do %>
-        <div class="boat-card">
+        <div class="boat boat-card">
           <%= image_tag boat.image_url, alt: boat.name, class: 'boat-image' %>
           <div class="boat-info">
             <h2 class="boat-name"><%= boat.name %></h2>

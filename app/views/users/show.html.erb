@@ -1,8 +1,8 @@
 <h1>Welcome <%= current_user.first_name %></h1>
 <h2>Your bookings</h2>
-<div class="boats">
+<div class="boats-container">
     <% current_user.bookings.each do |booking| %>
-      <div class="boat">
+      <div class="boat-card">
         <%= image_tag booking.boat.image_url, width: 200 %>
         <ul>
           <li><p>Date: <%= booking.booking_date %></p></li>
@@ -14,11 +14,10 @@
     <% end %>
 </div>
 
-<div class="boats-container">
   <h2>Your boats</h2>
-  <div class="boats">
+  <div class="boats-container">
     <% current_user.boats.each do |boat| %>
-      <div class="boat">
+      <div class="boat-card">
         <%= image_tag boat.image_url, alt: boat.name %>
         <h2><%= boat.name %></h2>
         <p><%= boat.details %></p>
@@ -29,6 +28,5 @@
         <%= link_to 'Delete Boat', boat_path(boat), class: 'btn btn-primary my-1 py-1' %>
       </div>
     <% end %>
-  </div>
   <%= link_to "Add Boat", new_boat_path, class: "btn btn-primary" %>
 </div>
