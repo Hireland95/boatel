@@ -2,20 +2,24 @@
   <h1 class="boats-title">Boats for Rent</h1>
   <div class="boats-container">
     <% @boats.each do |boat| %>
-      <%= link_to boat_path(boat), class: 'boat-card-link' do %>
-        <div class="boat boat-card">
-          <%= image_tag boat.image_url, alt: boat.name, class: 'boat-image' %>
-          <div class="boat-info">
-            <h2 class="boat-name"><%= boat.name %></h2>
-            <p class="boat-type"><%= boat.boat_type %></p>
-            <p class="boat-details"><%= boat.details %></p>
-            <p class="boat-address"><%= boat.address %></p>
-            <div class="price-section">
-              <p class="boat-price">£<%= boat.price %>/hour</p>
+      <div class="boat-card-wrapper">
+        <%= link_to boat_path(boat), class: 'boat-card-link' do %>
+          <div class="boat boat-card">
+            <%= image_tag boat.image_url, alt: boat.name, class: 'boat-image' %>
+            <div class="boat-info">
+              <h2 class="boat-name"><%= boat.name %></h2>
+              <p class="boat-type"><%= boat.boat_type %></p>
+              <p class="boat-details"><%= boat.details %></p>
+              <p class="boat-address"><%= boat.address %></p>
+              <div class="price-section">
+                <p class="boat-price">£<%= boat.price %>/hour</p>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+        <%# <%= link_to 'Book Now', new_boat_booking_path(boat), class: 'btn btn-book' %>
+      </div>
     <% end %>
   </div>
 </div>
+v
