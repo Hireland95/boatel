@@ -24,7 +24,7 @@ Boat.destroy_all
 30.times do |i|
   boat_type = ["Sailboat", "Motorboat", "Yacht", "Battleship", "Aircraft Carrier Ship", "Dinghy", "Submarine", "Pirate Ship"].sample
   Boat.create(
-    name: "Boat #{i + 1}",
+    name: Faker::Fantasy::Tolkien.character,
     user_id: (1..25).to_a.sample,
     image_url: "https://source.unsplash.com/1600x900/?#{boat_type}",
     address: Faker::Address.full_address,
