@@ -1,5 +1,7 @@
 <div class="boats-section">
   <h1 class="boats-title">Boats for Rent</h1>
+
+
   <div class="boats-container">
     <% @boats.each do |boat| %>
       <div class="boat-card-wrapper">
@@ -13,6 +15,7 @@
               <p class="boat-address"><%= boat.address %></p>
               <div class="price-section">
                 <p class="boat-price">£<%= boat.price %>/hour</p>
+                <%= link_to 'Book Now >', new_boat_booking_path(boat_id: boat.id), class: 'book-btn' %>
               </div>
             </div>
           </div>
