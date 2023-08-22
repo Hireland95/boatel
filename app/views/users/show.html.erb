@@ -1,7 +1,5 @@
 <h1>Welcome <%= current_user.first_name %></h1>
 <h2>Your bookings</h2>
-
-
 <div class="boats-container">
     <% current_user.bookings.each do |booking| %>
       <%= link_to boat_path(booking.boat), class: 'boat-card-link' do %>
@@ -21,6 +19,7 @@
     <% end %>
   </div>
 
+<h2>Your Boats</h2>
   <div class="boats-container">
     <% current_user.boats.each do |boat| %>
       <%= link_to boat_path(boat), class: 'boat-card-link' do %>

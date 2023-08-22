@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-5.times do |t|
+25.times do |t|
   user = User.new
   user.first_name = Faker::Name.first_name
   user.last_name = Faker::Name.last_name
@@ -21,8 +21,8 @@ Booking.destroy_all
 
 Boat.destroy_all
 
-10.times do |i|
-  boat_type = ["Sailboat", "Motorboat", "Yacht", "Battleship", "Aircraft Carrier Ship"].sample
+30.times do |i|
+  boat_type = ["Sailboat", "Motorboat", "Yacht", "Battleship", "Aircraft Carrier Ship", "Dinghy", "Submarine", "Pirate Ship"].sample
   Boat.create(
     name: "Boat #{i + 1}",
     user_id: (1..5).to_a.sample,
@@ -35,8 +35,8 @@ Boat.destroy_all
 end
 
 
-booking = Booking.new
-booking.user_id = 1
-booking.boat_id = 1
-# booking.date = DateTime.now
-booking.save
+20.times do |i|
+  booking = Booking.new
+  booking.user_id = (1..25).to_a.sample
+  booking.boat_id = (1..30).to_a.sample
+end
