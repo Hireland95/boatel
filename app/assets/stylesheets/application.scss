@@ -10,3 +10,65 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+.boats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.boat {
+  max-width: 600px;
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 2rem auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.boat:hover {
+  transform: translateY(-10px);
+}
+
+.boat img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.boat h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.boat p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #007BFF;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
