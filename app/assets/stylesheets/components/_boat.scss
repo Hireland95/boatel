@@ -244,3 +244,15 @@
 .boat-show-btn:hover {
   background-color: #0056b3;
 }
+
+.add-boat {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#boat-add {
+  width: 100px;
+  text-align: center;
+  height: 40px;
+}
