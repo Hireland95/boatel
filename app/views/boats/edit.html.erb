@@ -1,2 +1,10 @@
-  <h1>Boats#edit</h1>
-  <p>Find me in app/views/boats/edit.html.erb</p>
+<div class="container">
+  <h1>Edit your boat</h1>
+  <%= simple_form_for(@boat) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :price %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit "Save changes" %>
+<% end %>
+</div>
