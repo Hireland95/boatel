@@ -1,8 +1,12 @@
-<h1>Welcome <%= @user.first_name %></h1>
+<h1>Welcome <%= current_user.first_name %></h1>
 
 <div class="container">
-  <h1>Your Boats</h1>
-  <% @user.boats.each do |boat| %>
-<% end %>
+  <h2>Your bookings</h2>
+    <div>
+      <% current_user.bookings.each do |booking| %>
+        <%= image_tag booking.boat.image_url, width: 200 %>
+        <p>Date: <%= booking.booking_date %></p>
+        <%= link_to "View Boat", users_show_path(@user), class: "nav-link" %>
+      <% end %>
+    </div>
 </div>
-<p>Find me in app/views/users/show.html.erb</p>
