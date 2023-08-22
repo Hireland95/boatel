@@ -32,6 +32,7 @@
             <p class="boat-address"><%= boat.address %></p>
             <div class="price-section">
               <p class="boat-price">£<%= boat.price %>/hour</p>
+              <%= link_to 'Edit Now >', edit_boat_path(boat), class: 'book-btn' %>
             </div>
           </div>
         </div>
