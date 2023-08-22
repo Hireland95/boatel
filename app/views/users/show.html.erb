@@ -1,32 +1,41 @@
 <h1>Welcome <%= current_user.first_name %></h1>
 <h2>Your bookings</h2>
+
+
 <div class="boats-container">
     <% current_user.bookings.each do |booking| %>
-      <div class="boat-card">
-        <%= image_tag booking.boat.image_url, width: 200 %>
-        <ul>
-          <li><p>Date: <%= booking.booking_date %></p></li>
-          <li><p>Address: <%= booking.boat.address %></p></li>
-          <li><p>Owner: <%= booking.boat.user.first_name %></p></li>
-          <li><%= link_to "View Boat", boat_path(booking.boat), class: "btn btn-primary" %></li>
-        </ul>
-      </div>
+      <%= link_to boat_path(booking.boat), class: 'boat-card-link' do %>
+        <div class="boat-card">
+          <%= image_tag booking.boat.image_url, alt: booking.boat.name, class: 'boat-image' %>
+          <div class="boat-info">
+            <h2 class="boat-name"><%= booking.boat.name %></h2>
+            <p class="boat-type"><%= booking.boat.boat_type %></p>
+            <p class="boat-details"><%= booking.boat.details %></p>
+            <p class="boat-address"><%= booking.boat.address %></p>
+            <div class="price-section">
+              <p class="boat-price">£<%= booking.boat.price %>/hour</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-</div>
+  </div>
 
-  <h2>Your boats</h2>
   <div class="boats-container">
     <% current_user.boats.each do |boat| %>
-      <div class="boat-card">
-        <%= image_tag boat.image_url, alt: boat.name %>
-        <h2><%= boat.name %></h2>
-        <p><%= boat.details %></p>
-        <p>Address: <%= boat.address %></p>
-        <p>Price: <%= boat.price %> £/hour</p>
-        <%= link_to 'View Details', boat_path(boat), class: 'btn btn-primary my-1 py-1' %>
-        <%= link_to 'Edit Boat', edit_boat_path(boat), class: 'btn btn-primary my-1 py-1' %>
-        <%= link_to 'Delete Boat', boat_path(boat), class: 'btn btn-primary my-1 py-1' %>
-      </div>
+      <%= link_to boat_path(boat), class: 'boat-card-link' do %>
+        <div class="boat boat-card">
+          <%= image_tag boat.image_url, alt: boat.name, class: 'boat-image' %>
+          <div class="boat-info">
+            <h2 class="boat-name"><%= boat.name %></h2>
+            <p class="boat-type"><%= boat.boat_type %></p>
+            <p class="boat-details"><%= boat.details %></p>
+            <p class="boat-address"><%= boat.address %></p>
+            <div class="price-section">
+              <p class="boat-price">£<%= boat.price %>/hour</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  <%= link_to "Add Boat", new_boat_path, class: "btn btn-primary" %>
-</div>
+  </div>
