@@ -4,7 +4,11 @@ class BoatsController < ApplicationController
   end
 
   def show
-    @boat = Boat.find(params[:id])
+    @boat = Boat.find_by(id: params[:id])
+    if @boat.nil?
+      flash[:alert] = "Boat not found"
+      redirect_to boats_path
+    end
   end
 
   def new

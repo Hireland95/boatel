@@ -17,13 +17,23 @@
   user.save
 end
 
-boat = Boat.new
-boat.address = Faker::Address.full_address
-boat.name = "Flying Dutchman"
-boat.image_url = "https://d23.com/app/uploads/2020/06/1180w-600h_01_0834-P2C-21187_R.jpg"
-boat.price = 55.9
-boat.user_id = 1
-boat.save
+Booking.destroy_all
+
+Boat.destroy_all
+
+10.times do |i|
+  boat_type = ["Sailboat", "Motorboat", "Yacht", "Battleship", "Aircraft Carrier Ship"].sample
+  Boat.create(
+    name: "Boat #{i + 1}",
+    user_id: (1..5).to_a.sample,
+    image_url: "https://source.unsplash.com/1600x900/?#{boat_type}",
+    address: Faker::Address.full_address,
+    boat_type: boat_type,
+    details: Faker::Lorem.paragraph(sentence_count: 2),
+    price: rand(50..100).round(2)
+  )
+end
+
 
 booking = Booking.new
 booking.user_id = 1
