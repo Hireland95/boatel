@@ -1,12 +1,30 @@
 <h1>Welcome <%= current_user.first_name %></h1>
-
-<div class="container">
+<div class="bookings-container">
   <h2>Your bookings</h2>
-    <div>
-      <% current_user.bookings.each do |booking| %>
+    <% current_user.bookings.each do |booking| %>
+      <div class="bookings-card">
         <%= image_tag booking.boat.image_url, width: 200 %>
-        <p>Date: <%= booking.booking_date %></p>
-        <%= link_to "View Boat", users_show_path(@user), class: "nav-link" %>
+        <ul>
+          <li><p>Date: <%= booking.booking_date %></p></li>
+          <li><p>Address: <%= booking.boat.address %></p></li>
+          <li><p>Owner: <%= booking.boat.user.first_name %></p></li>
+          <li><%= link_to "View Boat", boat_path(booking.boat), class: "nav-link" %></li>
+        </ul>
+      <% end %>
+    </div>
+</div>
+
+<div class="boats-container">
+  <h2>Your boats</h2>
+    <% current_user.boats.each do |boat| %>
+      <div class="boats-card">
+        <%= image_tag boat.image_url, width: 200 %>
+        <ul>
+          <li><p>Address: <%= boat.address %></p></li>
+          <li><%= link_to "Edit Boat", boat_path(boat), class: "nav-link" %></li>
+          <li><%= link_to "Remove Boat", boat_path(boat), class: "nav-link" %></li>
+          <li><%= link_to "Add Boat", new_boat_path, class: "nav-link" %></li>
+        </ul>
       <% end %>
     </div>
 </div>
