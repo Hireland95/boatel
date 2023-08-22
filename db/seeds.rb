@@ -16,3 +16,17 @@
   user.password = "123456"
   user.save
 end
+
+boat = Boat.new
+boat.address = Faker::Address.full_address
+boat.name = "Flying Dutchman"
+boat.image_url = "https://d23.com/app/uploads/2020/06/1180w-600h_01_0834-P2C-21187_R.jpg"
+boat.price = 55.9
+boat.user_id = 1
+boat.save
+
+booking = Booking.new
+booking.user_id = 1
+booking.boat_id = 1
+# booking.date = DateTime.now
+booking.save
