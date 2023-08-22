@@ -1,9 +1,17 @@
-<div class="boat">
-  <h2><%= @boat.name %></h2>
-  <%= image_tag @boat.image_url, alt: @boat.name %>
-  <p><%= @boat.details %></p>
-  <p>Type: <%= @boat.type %></p>
-  <p>Price: <%= @boat.price %> USD/hour</p>
-  <p>Location: <%= @boat.address %></p>
-  <%= link_to 'Back to List', boats_path, class: 'btn btn-primary' %>
+<div class="boat-show-container">
+  <div class="boat-show-header">
+    <h2 class="boat-show-name"><%= @boat.name %></h2>
+    <p class="boat-show-type">Type: <%= @boat.boat_type %></p>
+  </div>
+  <div class="boat-show-image-container">
+    <%= image_tag @boat.image_url, alt: @boat.name, class: 'boat-show-image' %>
+  </div>
+  <div class="boat-show-details">
+    <p class="boat-show-text"><%= @boat.details %></p>
+    <p class="boat-show-location">Location: <%= @boat.address %></p>
+    <p class="boat-show-price">£<%= @boat.price %>/hour</p>
+  </div>
+  <div class="boat-show-action">
+    <%= link_to 'Back to List', boats_path, class: 'boat-show-btn' %>
+  </div>
 </div>
