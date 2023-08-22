@@ -25,7 +25,7 @@ Boat.destroy_all
   boat_type = ["Sailboat", "Motorboat", "Yacht", "Battleship", "Aircraft Carrier Ship", "Dinghy", "Submarine", "Pirate Ship"].sample
   Boat.create(
     name: "Boat #{i + 1}",
-    user_id: (1..5).to_a.sample,
+    user_id: (1..25).to_a.sample,
     image_url: "https://source.unsplash.com/1600x900/?#{boat_type}",
     address: Faker::Address.full_address,
     boat_type: boat_type,
