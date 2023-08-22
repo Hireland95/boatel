@@ -1,2 +1,9 @@
-<h1>Boats#show</h1>
-<p>Find me in app/views/boats/show.html.erb</p>
+<div class="boat">
+  <h2><%= @boat.name %></h2>
+  <%= image_tag @boat.image_url, alt: @boat.name %>
+  <p><%= @boat.details %></p>
+  <p>Type: <%= @boat.type %></p>
+  <p>Price: <%= @boat.price %> USD/hour</p>
+  <p>Location: <%= @boat.address %></p>
+  <%= link_to 'Back to List', boats_path, class: 'btn btn-primary' %>
+</div>

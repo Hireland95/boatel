@@ -1,2 +1,13 @@
-<h1>Boats#index</h1>
-<p>Find me in app/views/boats/index.html.erb</p>
+<h1>Boats for Rent</h1>
+<div class="boats">
+  <% @boats.each do |boat| %>
+    <div class="boat">
+      <%= image_tag boat.image_url, alt: boat.name %>
+      <h2><%= boat.name %></h2>
+      <p><%= boat.details %></p>
+      <p>Address: <%= boat.address %></p>
+      <p>Price: <%= boat.price %> £/hour</p>
+      <%= link_to 'View Details', boat_path(boat), class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
