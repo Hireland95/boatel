@@ -1,16 +1,30 @@
-<div class="container">
-  <h1>Create a New Booking</h1>
-  <%= image_tag @boat.image_url, class:"boat-image"%>
-  <%= simple_form_for([@boat, @booking]) do |f| %>
-    <%= f.association :boat, input_html: { value: @boat.id }, label: "Boat", include_blank: false, disabled: true %>
-  <%= f.input :booking_date,
-              as: :string,
-              input_html: { data: { controller: "datepicker" } } %>
-    <%= f.input :enddate,
-              as: :string,
-              input_html: { data: { controller: "datepicker" } } %>
-    <%# <%= f.input :end_date, as: :datetime, label: "End Date" %>
-    <%# <%= f.input :total_price, label: "Total Price", input_html: { readonly: true } %>
-    <%= f.button :submit, "Create Booking", class: "btn btn-primary" %>
-  <% end %>
+<div id="booking-container">
+
+  <h1 id="booking-title">Create a New Booking</h1>
+
+  <div id="booking-card">
+    <div id="boat-info">
+      <%= image_tag @boat.image_url, id:"boat-image" %>
+      <h2 id="boat-name"><%= @boat.name %></h2>
+      <p id="boat-description"><%= @boat.details %></p>
+    </div>
+
+    <div id="form-section">
+      <%= simple_form_for([@boat, @booking]) do |f| %>
+        <%= f.input :booking_date,
+                  as: :string,
+                  label: "Start Date:",
+                  input_html: { id: "start-date", data: { controller: "datepicker" } } %>
+        <%= f.input :enddate,
+                  as: :string,
+                  label: "End Date:",
+                  input_html: { id: "end-date", data: { controller: "datepicker" } } %>
+        <%= f.input :message,
+            as: :text,
+            label: "Your Message (optional):",
+            input_html: { rows: "5" } %>
+        <%= f.button :submit, "Create Booking", id: "submit-button" %>
+      <% end %>
+    </div>
+  </div>
 </div>

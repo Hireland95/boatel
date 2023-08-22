@@ -9,4 +9,343 @@
 
 // Your CSS partials
 @import "components/index";
-@import "components/boat"
+
+.boat-card {
+  width: 100%;
+  max-width: 400px;
+  height: 500px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.11);
+  overflow: hidden;
+  margin: 1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.boats-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.boats-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.boats-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.boat-card-link {
+  text-decoration: none;
+}
+
+
+.boat-card:hover {
+  transform: translateY(-5px);
+}
+
+.boat-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.boat-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  color: rgb(54, 54, 54);
+}
+
+.boat-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: rgb(54, 54, 54);
+}
+
+.boat-type {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: rgb(54, 54, 54);
+}
+
+.boat-details {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: rgb(54, 54, 54);
+}
+
+.boat-address {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: rgb(54, 54, 54);
+}
+
+.price-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.boat-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(54, 54, 54);
+}
+
+.boat p {
+  font-size: 1rem;
+  margin: 0 1rem 1rem 1rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: black;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #0056b3;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link .boat {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-link .boat:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.2);
+}
+
+.boat-show-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.boat-show-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.boat-show-name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.boat-show-type {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #6C757D;
+}
+
+.boat-show-image-container {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.boat-show-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.boat-show-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.boat-show-text {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.boat-show-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #343A40;
+  margin-bottom: 0.5rem;
+}
+
+.boat-show-location {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #6C757D;
+}
+
+.boat-show-action {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.boat-show-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #6c6c6c;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.book-btn{
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #0056b3;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.book-btn:hover {
+  color: #0056b3;
+  background-color: #ffffff;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.boat-show-btn:hover {
+  background-color: #0056b3;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#booking-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#booking-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  font-size: 2.5rem;
+}
+
+#booking-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  border: 1px solid #e1e1e1;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#boat-info {
+  flex: 1;
+  padding-right: 3rem;
+}
+
+#boat-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+#boat-name {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+#boat-description {
+  color: #7f8c8d;
+  font-size: 1.2rem;
+}
+
+#form-section {
+    flex: 1;
+}
+
+#start-date,
+#end-date {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+#submit-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #0056b3;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#submit-button:hover {
+  color: #0056b3;
+  background-color: #ffffff;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#message-input {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  width: 100%;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  resize: vertical;
+}
