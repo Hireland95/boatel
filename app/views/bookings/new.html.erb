@@ -1,11 +1,16 @@
 <div class="container">
   <h1>Create a New Booking</h1>
+  <%= image_tag @boat.image_url, class:"boat-image"%>
   <%= simple_form_for([@boat, @booking]) do |f| %>
     <%= f.association :boat, input_html: { value: @boat.id }, label: "Boat", include_blank: false, disabled: true %>
-    <%= f.association :user, label: "User", include_blank: false %>
-    <%# <%= f.input :start_date, as: :datetime, label: "Start Date" %>
+  <%= f.input :booking_date,
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
+    <%= f.input :enddate,
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
     <%# <%= f.input :end_date, as: :datetime, label: "End Date" %>
-    <%# <%= f.input :total_price, label: "Total Price", input_html: { readonly: true } %> 
+    <%# <%= f.input :total_price, label: "Total Price", input_html: { readonly: true } %>
     <%= f.button :submit, "Create Booking", class: "btn btn-primary" %>
   <% end %>
 </div>
