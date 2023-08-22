@@ -2,7 +2,7 @@
 <div class="container">
   <h1>Welcome <%= current_user.first_name %></h1>
   <h2>Your Upcoming Trips</h2>
-  <div class="boats-container">
+  <div class="boats-container" id="margin-top">
     <% if current_user.bookings.empty? %>
       <div class="add-boat">
         <h3 id="grey">You have no upcoming trips</h3>
