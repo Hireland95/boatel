@@ -4,7 +4,7 @@
 
   <div id="booking-card">
     <div id="boat-info">
-      <%= image_tag @boat.image_url, id:"boat-image" %>
+      <%= cl_image_tag @boat.photo.key, alt: @boat.name, class: 'boat-image'%>
       <h2 id="boat-name"><%= @boat.name %></h2>
       <p id="boat-description"><%= @boat.details %></p>
     </div>
