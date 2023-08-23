@@ -35,6 +35,13 @@ class BoatsController < ApplicationController
     redirect_to boat_path(@boat)
   end
 
+  def destroy
+    @boat = Boat.find(params[:id])
+    @boat.destroy
+
+    redirect_to boats_path, notice: 'Boat was successfully deleted.'
+  end
+
   private
 
   def boat_params

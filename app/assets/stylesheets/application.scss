@@ -349,3 +349,19 @@
   border-radius: 5px;
   resize: vertical;
 }
+
+.boat-name-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-boat-link {
+  color: red;
+  font-size: 20px;
+  margin-left: 10px;
+
+  &:hover {
+    color: darkred;
+  }
+}
