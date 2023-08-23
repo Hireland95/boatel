@@ -9,8 +9,8 @@ class BookingsController < ApplicationController
     @user = current_user
     result = booking_params
     @booking = Booking.new
-    @booking.booking_date = result[0]
-    @booking.enddate = result[1]
+    @booking.booking_date = Date.parse(result[0])
+    @booking.enddate = Date.parse(result[1])
     @booking.user = @user
     @booking.boat = @boat
     if @booking.save
