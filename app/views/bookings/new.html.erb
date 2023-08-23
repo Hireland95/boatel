@@ -13,12 +13,8 @@
       <%= simple_form_for([@boat, @booking]) do |f| %>
         <%= f.input :booking_date,
                   as: :string,
-                  label: "Start Date:",
-                  input_html: { id: "start-date", data: { controller: "datepicker" } } %>
-        <%= f.input :enddate,
-                  as: :string,
-                  label: "End Date:",
-                  input_html: { id: "end-date", data: { controller: "datepicker" } } %>
+                  label: "Dates",
+                  input_html: { id: "Dates", data: { controller: "datepicker" } } %>
         <%= f.input :message,
             as: :text,
             label: "Your Message (optional):",
