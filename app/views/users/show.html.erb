@@ -33,9 +33,9 @@
 
 
  <div class="add-boat">
-    <h2>Your Boats</h2>
-    <%= link_to "Add Boat", new_boat_path, class: 'btn btn-primary btn-common', id:"boat-add" %>
-</div>
+   <h2>Your Boats</h2>
+    <%= link_to "Add Boat", new_boat_path, id:"boat-add" %>
+  </div>
     <div class="boats-container">
       <% current_user.boats.each do |boat| %>
         <%= link_to boat_path(boat), class: 'boat-card-link' do %>
