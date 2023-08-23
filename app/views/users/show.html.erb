@@ -40,7 +40,7 @@
             <div class="boat-info">
               <div class="boat-name-section">
                 <h2 class="boat-name"><%= boat.name %></h2>
-                <%= link_to boat_path(boat), method: :delete, data: { confirm: "Are you sure you want to delete this boat?" }, class: 'delete-boat-link' do %>
+               <%= link_to boat_path(boat), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this boat?" }, class: 'delete-boat-link' do %>
                   <i class="fas fa-trash-alt"></i>
                 <% end %>
               </div>

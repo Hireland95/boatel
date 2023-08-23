@@ -40,8 +40,7 @@ class BoatsController < ApplicationController
   def destroy
     @boat = Boat.find(params[:id])
     @boat.destroy
-
-    redirect_to boats_path, notice: 'Boat was successfully deleted.'
+    redirect_to boats_path, notice: 'Boat was successfully deleted.', status: :see_other
   end
 
   private
