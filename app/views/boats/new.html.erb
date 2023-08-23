@@ -5,7 +5,7 @@
   <%= f.input :address %>
   <%= f.input :price %>
   <%= f.input :details %>
-  <%= f.input :boat_type %>
+  <%= f.input :boat_type, :collection => @boat_types %>
   <%= f.input :photo, as: :file %>
   <%= f.submit "Add boat" %>
 <% end %>

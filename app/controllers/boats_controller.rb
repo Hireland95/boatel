@@ -13,6 +13,7 @@ class BoatsController < ApplicationController
 
   def new
     @boat = Boat.new
+    @boat_types = ["Speedboat", "Yacht", "Cruise Ship", "Pirate Ship", "Canoe", "Rowing Boat", "Submarine", "Other"]
   end
 
   def create
@@ -27,6 +28,7 @@ class BoatsController < ApplicationController
 
   def edit
     @boat = Boat.find(params[:id])
+    @boat_types = ["Speedboat", "Yacht", "Cruise Ship", "Pirate Ship", "Canoe", "Rowing Boat", "Submarine", "Other"]
   end
 
   def update
