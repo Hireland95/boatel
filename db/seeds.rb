@@ -16,27 +16,3 @@
   user.password = "123456"
   user.save
 end
-
-Booking.destroy_all
-
-Boat.destroy_all
-
-30.times do |i|
-  boat_type = ["Sailboat", "Motorboat", "Yacht", "Battleship", "Aircraft Carrier Ship", "Dinghy", "Submarine", "Pirate Ship"].sample
-  Boat.create(
-    name: Faker::Fantasy::Tolkien.character,
-    user_id: (1..25).to_a.sample,
-    image_url: "https://source.unsplash.com/1600x900/?#{boat_type}",
-    address: Faker::Address.full_address,
-    boat_type: boat_type,
-    details: Faker::Lorem.paragraph(sentence_count: 2),
-    price: rand(50..100).round(2)
-  )
-end
-
-
-20.times do |i|
-  booking = Booking.new
-  booking.user_id = (1..25).to_a.sample
-  booking.boat_id = (1..30).to_a.sample
-end

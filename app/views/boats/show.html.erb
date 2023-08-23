@@ -4,7 +4,7 @@
     <p class="boat-show-type">Type: <%= @boat.boat_type %></p>
   </div>
   <div class="boat-show-image-container">
-    <%= image_tag @boat.image_url, alt: @boat.name, class: 'boat-show-image' %>
+    <%= cl_image_tag @boat.photo.key, alt: @boat.name, class: 'boat-show-image'%>
   </div>
   <div class="boat-show-details">
     <p class="boat-show-text"><%= @boat.details %></p>
@@ -14,7 +14,7 @@
   <div class="boat-show-action">
     <%= link_to '< Back to List', boats_path, class: 'boat-show-btn' %>
    <% if current_user %>
-      <%= link_to 'Book Now >', new_boat_booking_path(boat_id: boat.id), class: 'book-btn' %>
+      <%= link_to 'Book Now >', new_boat_booking_path(boat_id: @boat.id), class: 'book-btn' %>
     <%else%>
       <%= link_to 'Book Now >', new_user_session_path, class: 'book-btn' %>
     <% end %>
