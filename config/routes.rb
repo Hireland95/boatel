@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:destroy]
+  resources :boats, only: [:destroy], as: 'boat_destroy'
 end
