@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
 
   def booking_params
     range = params.require(:booking).permit(:booking_date)
-    startend = range[:booking_date].split("")
+    startend = range[:booking_date].split(" ")
     return [startend[0], startend[2]]
   end
 end
