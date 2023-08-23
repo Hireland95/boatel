@@ -14,7 +14,7 @@
         <%= f.input :booking_date,
                   as: :string,
                   label: "Dates",
-                  input_html: { id: "Dates", data: { controller: "datepicker" } } %>
+                  input_html: { id: "Dates", data: { controller: "datepicker",  datepicker_disabled_value: "#{@disabled_dates.to_json}"} } %>
         <%= f.input :message,
             as: :text,
             label: "Your Message (optional):",

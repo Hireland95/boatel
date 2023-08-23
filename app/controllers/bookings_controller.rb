@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @boat = Boat.find(params[:boat_id])
+    @disabled_dates = Booking.where(boat: @boat).pluck(:booking_date, :enddate).map { |dates| (dates[0]..dates[1]).to_a }.flatten
   end
 
   def create
