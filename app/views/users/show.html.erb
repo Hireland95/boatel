@@ -6,7 +6,7 @@
     <% if current_user.bookings.empty? %>
       <div class="add-boat">
         <h3 id="grey">You have no upcoming trips</h3>
-        <%= link_to "Book Now", boats_path, class: 'btn btn-primary', id:"boat-add" %>
+        <%= link_to "Book Now", boats_path, class: 'btn btn-primary btn-common', id:"boat-add" %>
       </div>
     <% else %>
       <% current_user.bookings.each do |booking| %>
@@ -28,10 +28,10 @@
     <% end %>
   </div>
 
-  <div class="add-boat">
+ <div class="add-boat">
     <h2>Your Boats</h2>
-    <%= link_to "Add Boat", new_boat_path, class: 'btn btn-primary', id:"boat-add" %>
-  </div>
+    <%= link_to "Add Boat", new_boat_path, class: 'btn btn-primary btn-common', id:"boat-add" %>
+</div>
     <div class="boats-container">
       <% current_user.boats.each do |boat| %>
         <%= link_to boat_path(boat), class: 'boat-card-link' do %>
@@ -49,7 +49,7 @@
               <p class="boat-address"><%= boat.address %></p>
               <div class="price-section">
                 <p class="boat-price">£<%= boat.price %>/hour</p>
-                <%= link_to 'Edit Now >', edit_boat_path(boat), class: 'book-btn' %>
+                <%= link_to 'Edit Now >', edit_boat_path(boat), class: 'book-btn btn-common' %>
               </div>
             </div>
           </div>

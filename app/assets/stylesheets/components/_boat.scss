@@ -1,5 +1,6 @@
 .add-boat {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -16,12 +17,6 @@
 
 #margin-top {
   margin: 100px 0px;
-}
-
-.add-boat {
-  display: flex;
-  justify-content: space-between;
-
 }
 
 #boat-add {
