@@ -297,7 +297,7 @@ DEPENDENCIES
   dotenv-rails
   faker
   font-awesome-sass (~> 6.1)
-  geocoder
+  geocoder (~> 1.8)
   importmap-rails
   jbuilder
   pg (~> 1.1)
