@@ -2,7 +2,7 @@
   <h1>Welcome <%= current_user.first_name %></h1>
   <h2>Your Upcoming Trips</h2>
   <div class="boats-container" id="margin-top">
-    <% if current_user.bookings.empty? %>
+    <% if @user.bookings.empty? %>
       <div class="add-boat" id="lol">
         <h3 id="grey">You have no upcoming trips</h3>
       </div>
@@ -74,21 +74,12 @@
                       <span class="visually-hidden">Next</span>
                     </button>
             </div>
-              <div class="boat-info">
-              <div class="boat-name-section">
-                <h2 class="boat-name"><%= boat.name %></h2>
-               <%= link_to boat_path(boat), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this boat?" }, class: 'delete-boat-link' do %>
-                  <i class="fas fa-trash-alt"></i>
+              <div>
+                <%= month_calendar(events: boat.bookings) do |date, books| %>
+                  <%= date.day %>
+
                 <% end %>
               </div>
-              <p class="boat-type"><%= boat.boat_type %></p>
-              <p class="boat-details"><%= boat.details %></p>
-              <p class="boat-address"><%= boat.address %></p>
-              <div class="price-section">
-                <p class="boat-price">£<%= boat.price %>/hour</p>
-                <%= link_to 'Edit Now >', edit_boat_path(boat), class: 'book-btn btn-common' %>
-              </div>
-            </div>
           </div>
         <% end %>
       <% end %>
