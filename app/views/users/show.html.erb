@@ -1,27 +1,24 @@
-<div id="rA34jK">
-  <header id="eF65zH">
-    <h1>Welcome, <%= current_user.first_name %>!</h1>
-    <h2>Your Upcoming Trips</h2>
-  </header>
-
-  <div id="zX09wQ">
+<div class="container">
+  <h1>Welcome <%= current_user.first_name %></h1>
+  <h2>Your Upcoming Trips</h2>
+  <div class="boats-container" id="margin-top">
     <% if current_user.bookings.empty? %>
-      <div id="yT87gE">
-        <h3>You have no upcoming trips</h3>
-        <%= link_to "Book Now", boats_path, id: "iU65rD" %>
+      <div class="add-boat" id="lol">
+        <h3 id="grey">You have no upcoming trips</h3>
       </div>
+        <%= link_to "Book Now", boats_path, class: 'btn-primary book-btn', id:"boat-add" %>
     <% else %>
-      <% current_user.bookings.each_with_index do |booking, index| %>
-        <%= link_to boat_path(booking.boat), id: "vB53#{index}" do %>
-          <div id="pL23fG">
-            <%= cl_image_tag booking.boat.photo.key, alt: booking.boat.name, id: "oW98yN" %>
-            <div id="qN45lP">
-              <h2 id="aR34kM"><%= booking.boat.name %></h2>
-              <p id="mE21zZ"><%= booking.boat.boat_type %></p>
-              <p id="nO09xC"><%= booking.booking_date %> to <%= booking.enddate %></p>
-              <p id="sS67vF"><%= booking.boat.address %></p>
-              <div id="dF65tG">
-                <p id="cG54hJ">£<%= booking.boat.price %>/hour</p>
+      <% current_user.bookings.each do |booking| %>
+        <%= link_to boat_path(booking.boat), class: 'boat-card-link' do %>
+          <div class="boat-card">
+            <%= cl_image_tag booking.boat.photo.key, alt: booking.boat.name, class: 'boat-show-image'%>
+            <div class="boat-info">
+              <h2 class="boat-name"><%= booking.boat.name %></h2>
+              <p class="boat-type"><%= booking.boat.boat_type %></p>
+              <p class="boat-details"><%= booking.booking_date %> to <%= booking.enddate %></p>
+              <p class="boat-address"><%= booking.boat.address %></p>
+              <div class="price-section">
+                <p class="boat-price">£<%= booking.boat.price %>/hour</p>
               </div>
             </div>
           </div>
@@ -29,12 +26,10 @@
       <% end %>
     <% end %>
   </div>
-</div>
-
 
  <div class="add-boat">
    <h2>Your Boats</h2>
-    <%= link_to "Add Boat", new_boat_path, id:"boat-add" %>
+    <%= link_to "Add Boat", new_boat_path, id:"boat-add", class: "book-btn"%>
   </div>
     <div class="boats-container">
       <% current_user.boats.each do |boat| %>
