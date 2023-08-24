@@ -61,6 +61,14 @@ class BoatsController < ApplicationController
     @boat = Boat.find(params[:id])
     @boat.update(boat_params[0])
     @boat.update({details: boat_params[1][:details].join("-") })
+    @boats = Boat.all
+    @markers = @boats.geocoded.map do |boat|
+      {lat: boat.latitude,
+        lng: boat.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {boat: boat}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
     redirect_to boat_path(@boat)
   end
 
