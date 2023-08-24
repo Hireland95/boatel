@@ -2,6 +2,7 @@ class BoatsController < ApplicationController
   def index
     @boats = Boat.all
     @boat_types = ["Speedboat", "Yacht", "Cruise Ship", "Pirate Ship", "Canoe", "Rowing Boat", "Submarine", "Other"]
+    @details = ["Electricity", "GPS", "Oars", "Wifi", "Kitchen", "Washing Machine", "Life Jackets", "Butler"]
     # Search filter logic
     if params[:boat_type].nil? && params[:max_price].nil?
       @select = @boats
@@ -35,11 +36,13 @@ class BoatsController < ApplicationController
 
   def new
     @boat = Boat.new
+    @details = ["Electricity", "GPS", "Oars", "Wifi", "Kitchen", "Washing Machine", "Life Jackets", "Butler"]
     @boat_types = ["Speedboat", "Yacht", "Cruise Ship", "Pirate Ship", "Canoe", "Rowing Boat", "Submarine", "Other"]
   end
 
   def create
-    @boat = Boat.new(boat_params)
+    @boat = Boat.new(boat_params[0])
+    @boat.details = boat_params[1][:details].join("-")
     @boat.user = current_user
     if @boat.save
       redirect_to boat_path(@boat)
@@ -51,11 +54,13 @@ class BoatsController < ApplicationController
   def edit
     @boat = Boat.find(params[:id])
     @boat_types = ["Speedboat", "Yacht", "Cruise Ship", "Pirate Ship", "Canoe", "Rowing Boat", "Submarine", "Other"]
+    @details = ["Electricity", "GPS", "Oars", "Wifi", "Kitchen", "Washing Machine", "Life Jackets", "Butler"]
   end
 
   def update
     @boat = Boat.find(params[:id])
-    @boat.update(boat_params)
+    @boat.update(boat_params[0])
+    @boat.update({details: boat_params[1][:details].join("-") })
     redirect_to boat_path(@boat)
   end
 
@@ -68,7 +73,7 @@ class BoatsController < ApplicationController
   private
 
   def boat_params
-    params.require(:boat).permit(:name, :address, :price, :details, :boat_type, photos: [])
+    return [params.require(:boat).permit(:name, :address, :price, :boat_type, photos: []), params.require(:boat).permit(details: [])]
   end
 
 end

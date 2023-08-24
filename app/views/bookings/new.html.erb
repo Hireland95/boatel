@@ -5,10 +5,7 @@
   <div id="booking-card">
     <div id="boat-info">
       <%= cl_image_tag @boat.photos.first.key, alt: @boat.name, class: 'boat-image'%>
-      <h2 id="boat-name"><%= @boat.name %></h2>
-      <p id="boat-description"><%= @boat.details %></p>
     </div>
-
     <div id="form-section">
       <%= simple_form_for([@boat, @booking]) do |f| %>
         <%= f.input :booking_date,

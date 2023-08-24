@@ -84,4 +84,7 @@ group :test do
   gem "webdrivers"
 end
 
+
 gem "geocoder"
+gem "simple_calendar", "~> 2.4"
+
