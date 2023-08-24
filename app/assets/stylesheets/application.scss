@@ -405,7 +405,7 @@
   text-align: center;
   background-color: #0056b3;
   color: white;
-  height: 170px;
+  height: 150px;
 }
 
 #search-filters {
@@ -508,6 +508,13 @@ h2 {
   }
 
   .calendar-heading {
-    justify-content: space-between;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .calendar-title {
+    font-weight: bold;
+    margin: 0px 50px;
   }
 }
