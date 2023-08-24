@@ -1,16 +1,22 @@
+#lol{
+  width: 100%;
+  justify-content: center;
+}
 .add-boat {
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
+
 #boat-add {
-  width: 50px;
+  display: flex;
+  justify-content: center;
   text-align: center;
   height: 40px;
 }
 
 #grey {
+  width: 100%;
   color: grey;
   margin-right: 40px;
 }
