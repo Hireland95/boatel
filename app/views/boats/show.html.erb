@@ -1,7 +1,6 @@
 <div class="boat-show-container">
   <div class="boat-show-header">
     <h2 class="boat-show-name"><%= @boat.name %></h2>
-    <p class="boat-show-type">Type: <%= @boat.boat_type %></p>
     <a href="mailto:<%= @boat.user.email %>" class="email-owner-btn">
     <p>Contant Host <i class="fas fa-envelope"></i></p>
 </a>
@@ -10,7 +9,8 @@
     <%= cl_image_tag @boat.photo.key, alt: @boat.name, class: 'boat-show-image'%>
   </div>
   <div class="boat-show-details">
-    <p class="boat-show-text"><%= @boat.details %></p>
+    <p class="boat-show-type">Type: <%= @boat.boat_type %></p>
+    <p class="boat-show-text">Details: <%= @boat.details %></p>
     <p class="boat-show-location">Location: <%= @boat.address %></p>
     <p class="boat-show-price">£<%= @boat.price %>/hour</p>
   </div>
