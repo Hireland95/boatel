@@ -396,6 +396,27 @@
 
 }
 
+
+.blue-bar {
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #0056b3;
+  color: white;
+  height: 170px;
+}
+
+#search-filters {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.box {
+  margin: 10px;
+}
+  
 .container {
   background-color: white;
   width: 80%;
@@ -445,4 +466,5 @@ h2 {
 
 .email-owner-btn:hover {
   color: #ff6464;
+
 }
