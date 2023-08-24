@@ -4,7 +4,7 @@
   <%= f.input :name %>
   <%= f.input :address %>
   <%= f.input :price %>
-  <%= f.input :details %>
+  <%= f.input :details, as: :check_boxes, collection: @details %>
   <%= f.input :boat_type, :collection => @boat_types %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit "Add boat" %>
