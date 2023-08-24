@@ -33,8 +33,8 @@
             </div>
               <div class="boat-info">
               <h2 class="boat-name"><%= booking.boat.name %></h2>
-              <p class="boat-type"><%= booking.boat.boat_type %></p>
-              <p class="boat-details"><%= booking.booking_date %> to <%= booking.enddate %></p>
+              <p class="boat-type">From: <%= booking.booking_date.to_fs(:long)  %></p>
+              <p class="boat-details">Until: <%= booking.enddate.to_fs(:long) %></p>
               <p class="boat-address"><%= booking.boat.address %></p>
               <div class="price-section">
                 <p class="boat-price">£<%= booking.boat.price %>/hour</p>
