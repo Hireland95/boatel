@@ -1,9 +1,25 @@
-<div class="boats-section">
+<div class="blue-bar">
   <h1 class="boats-title">Boats for Rent</h1>
+  <form action="/boats" id="search-filters" class="col-6">
+    <select name="boat_type" method="GET" class="box">
+      <option value="none">Boat Type</option>
+      <% @boat_types.each do |type| %>
+        <option value="<%= type %>"><%= type %></option>
+      <% end %>
+    </select>
+    <select name="max_price" class="box">
+      <option value="none">Max Price</option>
+      <% [1000, 800, 600, 400, 200, 100, 50, 10].each do |price| %>
+        <option value="<%= price %>"><%= price %></option>
+      <% end %>
+    </select>
+    <input type="submit" value="Apply Filters" class="box">
+  </form>
+</div>
 
-
+<div class="boats-section">
   <div class="boats-container">
-    <% @boats.each_with_index do |boat, index| %>
+    <% @select.reverse.each_with_index do |boat, index| %>
       <div class="boat-card-wrapper">
         <%= link_to boat_path(boat), class: 'boat-card-link' do %>
           <div class="boat boat-card">
@@ -28,8 +44,6 @@
                       <span class="visually-hidden">Next</span>
                     </button>
           </div>
-
-
             <div class="boat-info">
               <h2 class="boat-name"><%= boat.name %></h2>
               <p class="boat-type"><%= boat.boat_type %></p>

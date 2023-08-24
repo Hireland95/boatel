@@ -1,6 +1,18 @@
 class BoatsController < ApplicationController
   def index
     @boats = Boat.all
+    @boat_types = ["Speedboat", "Yacht", "Cruise Ship", "Pirate Ship", "Canoe", "Rowing Boat", "Submarine", "Other"]
+
+    # Search filter logic
+    if params[:boat_type] != "none" && params[:max_price] != "none"
+      @select = @boats.select { |boat| boat.boat_type == params[:boat_type] && boat.price <= params[:max_price].to_f }
+    elsif params[:boat_type] != "none"
+      @select = @boats.select { |boat| boat.boat_type == params[:boat_type] }
+    elsif params[:max_price] != "none"
+      @select = @boats.select { |boat| boat.price <= params[:max_price].to_f }
+    else
+      @select = @boats
+    end
   end
 
   def show
@@ -48,4 +60,5 @@ class BoatsController < ApplicationController
   def boat_params
     params.require(:boat).permit(:name, :address, :price, :details, :boat_type, photos: [])
   end
+
 end

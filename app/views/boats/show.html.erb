@@ -1,7 +1,9 @@
 <div class="boat-show-container">
   <div class="boat-show-header">
     <h2 class="boat-show-name"><%= @boat.name %></h2>
-    <p class="boat-show-type">Type: <%= @boat.boat_type %></p>
+    <a href="mailto:<%= @boat.user.email %>" class="email-owner-btn">
+    <p>Contant Host <i class="fas fa-envelope"></i></p>
+</a>
   </div>
   <div class="boat-show-image-container">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -26,7 +28,8 @@
       </div>
     </div>
   <div class="boat-show-details">
-    <p class="boat-show-text"><%= @boat.details %></p>
+    <p class="boat-show-type">Type: <%= @boat.boat_type %></p>
+    <p class="boat-show-text">Details: <%= @boat.details %></p>
     <p class="boat-show-location">Location: <%= @boat.address %></p>
     <p class="boat-show-price">£<%= @boat.price %>/hour</p>
   </div>
@@ -35,9 +38,9 @@
     <% if current_user == @boat.user %>
       <%= link_to 'Edit Boat', edit_boat_path, class: 'edit-btn btn-common' %>
     <% end %>
-   <% if current_user %>
+    <% if current_user %>
       <%= link_to 'Book Now >', new_boat_booking_path(boat_id: @boat.id), class: 'book-btn btn-common' %>
-    <%else%>
+    <% else %>
       <%= link_to 'Book Now >', new_user_session_path, class: 'book-btn btn-common' %>
     <% end %>
   </div>
