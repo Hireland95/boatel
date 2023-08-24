@@ -1,13 +1,12 @@
-
 <div class="container">
   <h1>Welcome <%= current_user.first_name %></h1>
   <h2>Your Upcoming Trips</h2>
   <div class="boats-container" id="margin-top">
     <% if current_user.bookings.empty? %>
-      <div class="add-boat">
+      <div class="add-boat" id="lol">
         <h3 id="grey">You have no upcoming trips</h3>
-        <%= link_to "Book Now", boats_path, class: 'btn btn-primary btn-common', id:"boat-add" %>
       </div>
+        <%= link_to "Book Now", boats_path, class: 'btn-primary book-btn', id:"boat-add" %>
     <% else %>
       <% current_user.bookings.each do |booking| %>
         <%= link_to boat_path(booking.boat), class: 'boat-card-link' do %>
@@ -30,7 +29,7 @@
 
  <div class="add-boat">
    <h2>Your Boats</h2>
-    <%= link_to "Add Boat", new_boat_path, id:"boat-add" %>
+    <%= link_to "Add Boat", new_boat_path, id:"boat-add", class: "book-btn"%>
   </div>
     <div class="boats-container">
       <% current_user.boats.each do |boat| %>
