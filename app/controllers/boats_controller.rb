@@ -4,7 +4,9 @@ class BoatsController < ApplicationController
     @boat_types = ["Speedboat", "Yacht", "Cruise Ship", "Pirate Ship", "Canoe", "Rowing Boat", "Submarine", "Other"]
 
     # Search filter logic
-    if params[:boat_type] != "none" && params[:max_price] != "none"
+    if params[:boat_type].nil? && params[:max_price].nil?
+      @select = @boats
+    elsif params[:boat_type] != "none" && params[:max_price] != "none"
       @select = @boats.select { |boat| boat.boat_type == params[:boat_type] && boat.price <= params[:max_price].to_f }
     elsif params[:boat_type] != "none"
       @select = @boats.select { |boat| boat.boat_type == params[:boat_type] }
