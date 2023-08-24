@@ -11,8 +11,10 @@
       <% current_user.bookings.each do |booking| %>
         <%= link_to boat_path(booking.boat), class: 'boat-card-link' do %>
           <div class="boat-card">
-            <%= cl_image_tag booking.boat.photo.key, alt: booking.boat.name, class: 'boat-show-image'%>
-            <div class="boat-info">
+              <% booking.boat.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, alt: booking.boat.name, class: 'boat-image', height: 300, width: 400, crop: :fill %>
+              <% end %>
+              <div class="boat-info">
               <h2 class="boat-name"><%= booking.boat.name %></h2>
               <p class="boat-type"><%= booking.boat.boat_type %></p>
               <p class="boat-details"><%= booking.booking_date %> to <%= booking.enddate %></p>
@@ -35,8 +37,10 @@
       <% current_user.boats.each do |boat| %>
         <%= link_to boat_path(boat), class: 'boat-card-link' do %>
           <div class="boat boat-card">
-            <%= cl_image_tag boat.photo.key, alt: boat.name, class: 'boat-image'%>
-            <div class="boat-info">
+              <% boat.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, alt: boat.name, class: 'boat-image', height: 300, width: 400, crop: :fill %>
+              <% end %>
+              <div class="boat-info">
               <div class="boat-name-section">
                 <h2 class="boat-name"><%= boat.name %></h2>
                <%= link_to boat_path(boat), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this boat?" }, class: 'delete-boat-link' do %>

@@ -6,8 +6,27 @@
 </a>
   </div>
   <div class="boat-show-image-container">
-    <%= cl_image_tag @boat.photo.key, alt: @boat.name, class: 'boat-show-image'%>
-  </div>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+      <div class="carousel-item active">
+           <%= cl_image_tag @boat.photos.first.key, alt: @boat.name, class: 'boat-image', height: 300, width: 400, crop: :fill %>
+          </div>
+        <% @boat.photos[1..@boat.photos.size].each do |photo| %>
+        <div class="carousel-item">
+           <%= cl_image_tag photo.key, alt: @boat.name, class: 'boat-image', height: 300, width: 400, crop: :fill %>
+          </div>
+                <% end %>
+        </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+      </div>
+    </div>
   <div class="boat-show-details">
     <p class="boat-show-type">Type: <%= @boat.boat_type %></p>
     <p class="boat-show-text">Details: <%= @boat.details %></p>
