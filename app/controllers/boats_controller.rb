@@ -3,7 +3,6 @@ class BoatsController < ApplicationController
     @boats = Boat.all
     @boat_types = ["Speedboat", "Yacht", "Cruise Ship", "Pirate Ship", "Canoe", "Rowing Boat", "Submarine", "Other"]
     @details = ["Electricity", "GPS", "Oars", "Wifi", "Kitchen", "Washing Machine", "Life Jackets", "Butler"]
-
     # Search filter logic
     if params[:boat_type].nil? && params[:max_price].nil?
       @select = @boats
@@ -23,6 +22,15 @@ class BoatsController < ApplicationController
     if @boat.nil?
       flash[:alert] = "Boat not found"
       redirect_to boats_path
+    end
+
+    @boats = Boat.all
+    @markers = @boats.geocoded.map do |boat|
+    {lat: boat.latitude,
+      lng: boat.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: {boat: boat}),
+      marker_html: render_to_string(partial: "marker")
+    }
     end
   end
 
