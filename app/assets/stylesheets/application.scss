@@ -425,3 +425,24 @@ h2 {
   justify-content: center;
   margin-top: 20px;
 }
+
+.boat-show-header {
+  position: relative;
+  width: 100%;
+}
+
+.email-owner-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff646400;
+  color: #4f4f4f;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.email-owner-btn:hover {
+  color: #ff6464;
+}
