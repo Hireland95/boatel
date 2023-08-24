@@ -7,13 +7,14 @@
 @import "bootstrap";
 @import "font-awesome";
 
+
 // Your CSS partials
 @import "components/index";
 
 .boat-card {
   width: 100%;
   max-width: 400px;
-  height: 500px;
+  height: 520px;
   border: none;
   border-radius: 8px;
   box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.11);
@@ -472,4 +473,40 @@ h2 {
 
 .dashboard-container {
   margin: 10px 40px;
+}
+
+.simple-calendar {
+  .day {}
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+    background-color: lightgrey;
+  }
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {
+    background-color: lightblue;
+  }
+  .next {
+    text-decoration: none;
+    color: grey;
+  }
+
+  .calendar-heading {
+    justify-content: space-between;
+  }
 }

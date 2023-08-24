@@ -85,3 +85,4 @@ group :test do
 end
 
 gem "geocoder", "~> 1.8"
+gem "simple_calendar", "~> 2.4"
