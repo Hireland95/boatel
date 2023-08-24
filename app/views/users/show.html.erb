@@ -1,4 +1,4 @@
-<div class="container">
+<div class="dashboard-container">
   <h1>Welcome <%= current_user.first_name %></h1>
   <h2>Your Upcoming Trips</h2>
   <div class="boats-container" id="margin-top">
@@ -8,12 +8,29 @@
       </div>
         <%= link_to "Book Now", boats_path, class: 'btn-primary book-btn', id:"boat-add" %>
     <% else %>
-      <% current_user.bookings.each do |booking| %>
+      <% current_user.bookings.each_with_index do |booking, index| %>
         <%= link_to boat_path(booking.boat), class: 'boat-card-link' do %>
           <div class="boat-card">
-              <% booking.boat.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, alt: booking.boat.name, class: 'boat-image', height: 300, width: 400, crop: :fill %>
-              <% end %>
+              <div id="carouselExampleControls-<%= index %>" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+              <div class="carousel-item active">
+              <%= cl_image_tag booking.boat.photos.first.key, alt: booking.boat.name, class: 'boat-image', height: 250, width: 400, crop: :fill %>
+              </div>
+              <% booking.boat.photos[1..booking.boat.photos.size].each do |photo| %>
+              <div class="carousel-item">
+                <%= cl_image_tag photo.key, alt: booking.boat.name, class: 'boat-image', height: 250, width: 400, crop: :fill %>
+              </div>
+                    <% end %>
+              </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-<%= index %>" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-<%= index %>" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+            </div>
               <div class="boat-info">
               <h2 class="boat-name"><%= booking.boat.name %></h2>
               <p class="boat-type"><%= booking.boat.boat_type %></p>
@@ -34,12 +51,29 @@
     <%= link_to "Add Boat", new_boat_path, id:"boat-add", class: "book-btn"%>
   </div>
     <div class="boats-container">
-      <% current_user.boats.each do |boat| %>
+      <% current_user.boats.each_with_index do |boat, index| %>
         <%= link_to boat_path(boat), class: 'boat-card-link' do %>
           <div class="boat boat-card">
-              <% boat.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, alt: boat.name, class: 'boat-image', height: 300, width: 400, crop: :fill %>
-              <% end %>
+              <div id="carouselExampleControls-<%= index %>" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+              <div class="carousel-item active">
+              <%= cl_image_tag boat.photos.first.key, alt: boat.name, class: 'boat-image', height: 250, width: 400, crop: :fill %>
+              </div>
+              <% boat.photos[1..boat.photos.size].each do |photo| %>
+              <div class="carousel-item">
+                <%= cl_image_tag photo.key, alt: boat.name, class: 'boat-image', height: 250, width: 400, crop: :fill %>
+              </div>
+                    <% end %>
+              </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-<%= index %>" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-<%= index %>" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+            </div>
               <div class="boat-info">
               <div class="boat-name-section">
                 <h2 class="boat-name"><%= boat.name %></h2>
