@@ -37,7 +37,7 @@
               <p class="boat-details">Until: <%= booking.enddate.to_fs(:long) %></p>
               <p class="boat-address"><%= booking.boat.address %></p>
               <div class="price-section">
-                <p class="boat-price">£<%= booking.boat.price %>/hour</p>
+                <p class="boat-price">£<%= booking.boat.price %>0/hour</p>
                 <a href="mailto:<%= booking.boat.user.email %>"><i class="fas fa-envelope"></i></a>
               </div>
             </div>

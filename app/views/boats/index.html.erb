@@ -49,7 +49,7 @@
               <p class="boat-type"><%= boat.boat_type %></p>
               <p class="boat-address"><%= boat.address %></p>
               <div class="price-section">
-                <p class="boat-price" id="price-text">£<%= boat.price %>/hour</p>
+                <p class="boat-price" id="price-text">£<%= boat.price %>0/hour</p>
                 <% if current_user %>
                   <%= link_to 'Book Now >', new_boat_booking_path(boat_id: boat.id), class: 'book-btn btn-common' %>
                   <%else%>
