@@ -31,14 +31,14 @@
                       <span class="visually-hidden">Next</span>
                     </button>
             </div>
-              <div class="boat-info">
+              <div class="boat-info" id="booking-info-dashboard">
               <div class="inline"><h2 class="boat-name"><%= booking.boat.name %></h2><%= link_to "❌", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "cancel"%></div>
               <p class="boat-type">From: <%= booking.booking_date.to_fs(:long)  %></p>
               <p class="boat-details">Until: <%= booking.enddate.to_fs(:long) %></p>
               <p class="boat-address"><%= booking.boat.address %></p>
               <div class="price-section">
                 <p class="boat-price">£<%= booking.boat.price %>0/hour</p>
-                <a href="mailto:<%= booking.boat.user.email %>"><i class="fas fa-envelope fa-2xl"></i></a>
+                <a href="mailto:<%= booking.boat.user.email %>"><i class="fas fa-envelope"></i></a>
               </div>
             </div>
           </div>
