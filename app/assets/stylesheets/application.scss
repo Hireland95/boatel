@@ -437,7 +437,9 @@
 .add-boat {
   display: flex;
   justify-content: space-between;
-
+  text-align: center;
+  margin: 40px 20px;
+  height: 42px;
 }
 
 
@@ -662,4 +664,9 @@ h2 {
 
 #bookings-card {
   height: 520px;
+}
+
+#dashboard-title {
+  display: flex;
+  flex-direction: left;
 }
