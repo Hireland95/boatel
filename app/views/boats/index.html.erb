@@ -10,7 +10,7 @@
     <select name="max_price" class="box">
       <option value="none">Max Price</option>
       <% [1000, 800, 600, 400, 200, 100, 50, 10].each do |price| %>
-        <option value="<%= price %>"><%= price %></option>
+        <option value="<%= price %>"><%= "£#{price}" %></option>
       <% end %>
     </select>
     <input type="submit" value="Apply Filters" class="box">
