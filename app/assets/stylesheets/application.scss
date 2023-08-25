@@ -14,7 +14,7 @@
 .boat-card {
   width: 100%;
   max-width: 400px;
-  height: 550px;
+  height: 500px;
   border: none;
   border-radius: 8px;
   box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.11);
@@ -859,4 +859,19 @@ h2 {
 
 .mapboxgl-ctrl-geocoder--icon-search {
   display: none;
+}
+
+#booking-card-dashboard {
+  width: 100%;
+  max-width: 400px;
+  height: 550px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.11);
+  overflow: hidden;
+  margin: 1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
 }
