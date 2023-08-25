@@ -630,3 +630,16 @@ h2 {
   }
 }
 
+.inline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fa-trash-can {
+  color: grey;
+}
+
+.cancel {
+  text-decoration: none;
+  color: grey;
+}
