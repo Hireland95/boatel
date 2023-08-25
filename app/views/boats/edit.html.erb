@@ -1,5 +1,8 @@
 <div class="container">
-  <h1>Edit your boat</h1>
+  <div class="inline">
+    <h1>Edit your boat</h1>
+    <%= link_to "Delete", boat_path(@boat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "cancel"%>
+  </div>
   <%= simple_form_for(@boat) do |f| %>
   <%= f.input :name %>
   <%= f.input :address %>
