@@ -1,6 +1,6 @@
 <div class="dashboard-container">
   <h1>Welcome <%= current_user.first_name %></h1>
-  <h2>Your Upcoming Trips</h2>
+  <h2 id="dashboard-title">Your Upcoming Trips</h2>
   <div class="boats-container" id="margin-top">
     <% if @user.bookings.empty? %>
       <div class="add-boat" id="lol">
@@ -49,7 +49,7 @@
 
  <div class="add-boat">
    <h2>Your Boats</h2>
-    <%= link_to "Add Boat", new_boat_path, id:"boat-add", class: "book-btn"%>
+    <%= link_to "Add Boat", new_boat_path, id:"boat-add-dashboard", class: "book-btn"%>
   </div>
     <div class="boats-container">
       <% current_user.boats.each_with_index do |boat, index| %>
