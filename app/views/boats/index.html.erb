@@ -1,8 +1,8 @@
 
 <div class="blue-bar">
-  <div class="search-bar-container">
-    <div class="placeholder-text">Search for a boat...</div>
-    <form action="/boats" id="search-filters">
+  <div class="search-bar-container" data-controller="search-bar">
+    <div class="placeholder-text" data-search-bar-target="placeholder" data-action="mouseover->search-bar#appear">Search for a boat...</div>
+    <form action="/boats" id="search-filters" data-search-bar-target="form" class="d-none">
       <div class="filter-wrapper">
         <i class="fas fa-ship"></i>
         <select name="boat_type" class="box">
