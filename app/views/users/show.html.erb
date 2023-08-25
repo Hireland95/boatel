@@ -32,7 +32,7 @@
                     </button>
             </div>
               <div class="boat-info">
-              <h2 class="boat-name"><%= booking.boat.name %></h2>
+              <div class="inline"><h2 class="boat-name"><%= booking.boat.name %></h2><%= link_to "❌", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "cancel"%></div>
               <p class="boat-type">From: <%= booking.booking_date.to_fs(:long)  %></p>
               <p class="boat-details">Until: <%= booking.enddate.to_fs(:long) %></p>
               <p class="boat-address"><%= booking.boat.address %></p>

@@ -645,3 +645,17 @@ h2 {
     margin: 0px 50px;
   }
 }
+
+.inline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fa-trash-can {
+  color: grey;
+}
+
+.cancel {
+  text-decoration: none;
+  color: grey;
+}
