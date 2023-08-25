@@ -26,6 +26,10 @@
   transition: transform 0.2s;
 }
 
+h1 {
+  font-family: 'Raleway', sans-serif;
+}
+
 .boats-section {
   display: flex;
   flex-direction: column;
@@ -110,12 +114,12 @@
 .boat p {
   font-size: 1rem;
   margin-top: 10px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Raleway', sans-serif;
   color: black;
 }
 
 #price-text {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .btn {
@@ -635,7 +639,7 @@ h2 {
 h2 {
   text-align: center;
   margin-bottom: 20px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .form-inputs {
