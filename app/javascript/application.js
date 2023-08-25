@@ -3,3 +3,8 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
+
+document.querySelector(".placeholder-text").addEventListener("click", function() {
+  this.style.display = "none";
+  document.getElementById("search-filters").style.display = "flex";
+});
