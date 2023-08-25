@@ -87,4 +87,3 @@ end
 
 gem "geocoder"
 gem "simple_calendar", "~> 2.4"
-
