@@ -1,6 +1,6 @@
 <div class="dashboard-container">
   <h1>Welcome <%= current_user.first_name %></h1>
-  <h2>Your Upcoming Trips</h2>
+  <h2 id="dashboard-title">Your Upcoming Trips</h2>
   <div class="boats-container" id="margin-top">
     <% if @user.bookings.empty? %>
       <div class="add-boat" id="lol">
@@ -37,7 +37,7 @@
               <p class="boat-details">Until: <%= booking.enddate.to_fs(:long) %></p>
               <p class="boat-address"><%= booking.boat.address %></p>
               <div class="price-section">
-                <p class="boat-price">£<%= booking.boat.price %>/hour</p>
+                <p class="boat-price">£<%= booking.boat.price %>0/hour</p>
                 <a href="mailto:<%= booking.boat.user.email %>"><i class="fas fa-envelope"></i></a>
               </div>
             </div>
@@ -49,12 +49,12 @@
 
  <div class="add-boat">
    <h2>Your Boats</h2>
-    <%= link_to "Add Boat", new_boat_path, id:"boat-add", class: "book-btn"%>
+    <%= link_to "Add Boat", new_boat_path, id:"boat-add-dashboard", class: "book-btn"%>
   </div>
     <div class="boats-container">
       <% current_user.boats.each_with_index do |boat, index| %>
         <%= link_to boat_path(boat), class: 'boat-card-link' do %>
-          <div class="boat boat-card">
+          <div class="boat boat-card" id="bookings-card">
               <div id="carouselExampleControls-<%= index %>" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
               <div class="carousel-item active">
