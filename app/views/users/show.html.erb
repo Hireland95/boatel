@@ -54,7 +54,7 @@
     <div class="boats-container">
       <% current_user.boats.each_with_index do |boat, index| %>
         <%= link_to boat_path(boat), class: 'boat-card-link' do %>
-          <div class="boat boat-card">
+          <div class="boat boat-card" id="bookings-card">
               <div id="carouselExampleControls-<%= index %>" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
               <div class="carousel-item active">
