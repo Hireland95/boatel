@@ -1,44 +1,56 @@
-  <div class="boat-show-header">
-    <h2 class="boat-show-name"><%= @boat.name %></h2>
-    <a href="mailto:<%= @boat.user.email %>" class="email-owner-btn">
+<div class="boat-show-header">
+  <h2 class="boat-show-name"><%= @boat.name %></h2>
+  <a href="mailto:<%= @boat.user.email %>" class="email-owner-btn">
     <p>Contact Host <i class="fas fa-envelope"></i></p>
-</a>
-  </div>
-  <div class="show-parent-container">
-
-<div class="boat-show-container">
-  <div class="boat-show-image-container">
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-      <div class="carousel-item active">
-           <%= cl_image_tag @boat.photos.first.key, alt: @boat.name, class: 'boat-image', height: 300, width: 400, crop: :fill %>
+  </a>
+</div>
+<div class="show-parent-container">
+  <div class="boat-show-container">
+    <div class="boat-show-image-container">
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= cl_image_tag @boat.photos.first.key, alt: @boat.name, class: 'boat-image', height: 300, width: 400, crop: :fill %>
           </div>
-        <% @boat.photos[1..@boat.photos.size].each do |photo| %>
-        <div class="carousel-item">
-           <%= cl_image_tag photo.key, alt: @boat.name, class: 'boat-image', height: 300, width: 400, crop: :fill %>
+          <% @boat.photos[1..@boat.photos.size].each do |photo| %>
+          <div class="carousel-item">
+            <%= cl_image_tag photo.key, alt: @boat.name, class: 'boat-image', height: 300, width: 400, crop: :fill %>
           </div>
-                <% end %>
+          <% end %>
         </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
+    <div id="map" style="height: 400px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
   <div class="boat-show-details">
-    <p class="boat-show-type">Type: <%= @boat.boat_type %></p>
-    <p class="boat-show-text">Details:</p>
-    <ul>
-     <% @boat.details.split("-").drop(1).each do |detail| %>
-     <li><%= detail %></li>
-     <% end %>
-    </ul>
-    <p class="boat-show-location">Location: <%= @boat.address %></p>
-    <p class="boat-show-price">£<%= @boat.price %>0/hour</p>
+    <div class="detail-card">
+    <i class="fa fa-ship fa-2x" id="show-icon" aria-hidden="true"></i>
+      <p class="boat-show-type"><%= @boat.boat_type %></p>
+    </div>
+    <div class="detail-card">
+    <i class="fa fa-info fa-2x" id="show-icon" aria-hidden="true"></i>
+    <ul class="details-container">
+    <% @boat.details.split("-").drop(1).each do |detail| %>
+      <li class="detail-tag"><%= detail %></li>
+    <% end %>
+  </ul>
+    </div>
+    <div class="detail-card">
+    <i class="fa fa-money fa-2x" id="show-icon" aria-hidden="true"></i>
+      <p class="boat-show-price">£<%= @boat.price %>/hour</p>
+    </div>
   </div>
   <div class="boat-show-action">
     <%= link_to '< Back to List', boats_path, class: 'boat-show-btn btn-common' %>
@@ -52,9 +64,3 @@
     <% end %>
   </div>
 </div>
-  <div id= "map" style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-  </div>
